@@ -1,26 +1,60 @@
-# Next + Netlify Starter
+<img width="1400" alt="Descope Netlify Banner" src="./netlify_template_banner.png">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
 
-This is a [Next.js](https://nextjs.org/) v15 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and set up to be instantly deployed to [Netlify](https://url.netlify.com/SyTBPVamO)!
+# Netlify + Descope Next.js Template
 
-This project is a very minimal starter that includes 2 sample components, a global stylesheet, a `netlify.toml` for deployment, and a `jsconfig.json` for setting up absolute imports and aliases. With Netlify, you'll have access to features like Preview Mode, server-side rendering/incremental static regeneration via Netlify Functions, and internationalized routing on deploy automatically.
+This template allows you to instantly deploy an app with Descope Authentication to Netlify. This is great for Next.js developers who want to quickly create deployable applications with advanced auth methods. :zap:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
+## Getting Started 🚀
 
-(If you click this button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify)
+Follow these steps to clone the repository and start using the app.
 
-## Table of Contents:
+### Prerequisites
 
-- [Getting Started](#getting-started)
-- [Installation options](#installation-options)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
+- An account on [Descope](https://descope.com/).
 
-## Getting Started
+### Clone the Repository
 
-First, run the development server:
+Start by cloning the repository to your local machine:
+
+```bash
+git clone https://github.com/descope-sample-apps/descope-netlify-template
+cd descope-netlify-template
+```
+
+### Install Dependencies
+
+Navigate to the project directory and install the necessary dependencies:
+
+```bash
+npm i
+npm install netlify-cli -g
+npm install @descope/nextjs-sdk
+```
+
+### Connect To Netlify
+
+The Netlify initialization script will walk you through how to connect to a new or existing Netlify project.
+
+```bash
+netlify init
+```
+
+### Configuration
+
+Before you run the app, make sure to configure the following:
+
+- **Environment Variables**: Set up your environment variables in a `.env.local` file or on the Netlify project dashboard under site configuration -> Environment variables. You'll need to include your Descope project settings:
+
+```
+####### Descope ENV Variables
+NEXT_PUBLIC_DESCOPE_PROJECT_ID="" // Descope Project ID
+NEXT_PUBLIC_DESCOPE_FLOW_ID="" // Descope flow to use on Sign In Page
+```
+
+### Running the App
+
+Once you've configured your app, you're ready to run it:
 
 ```bash
 npm run dev
@@ -28,36 +62,19 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This command starts the Next.js development server, making your app accessible at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Support :raised_hands:
 
-### Installation options
+If you encounter any issues or have questions, consult the Netlify and Descope documentation, or reach out to our [support](https://www.descope.com/contact) for assistance.
 
-**Option one:** One-click deploy
+- [Netlify Documentation](https://docs.netlify.com/)
+- [Descope Documentation](https://docs.descope.com/)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex-cs)
+## Contributing
 
-**Option two:** Manual clone
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you have suggestions or improvements.
 
-1. Clone this repo: `git clone https://github.com/netlify-templates/next-netlify-starter.git`
-2. Navigate to the directory and run `npm install`
-3. Run `npm run dev`
-4. Make your changes
-5. Connect to [Netlify](https://url.netlify.com/Bk4UicocL) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)
+## License
 
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
+This sample app is open-source and available under the MIT License. See the LICENSE file for more details.
