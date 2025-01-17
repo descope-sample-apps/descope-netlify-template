@@ -39,6 +39,9 @@ The Netlify initialization script will walk you through how to connect to a new 
 ```bash
 netlify init
 ```
+or, connect to Netlify by clicking the button below:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/descope-sample-apps/descope-netlify-template)
 
 ### Configuration
 
