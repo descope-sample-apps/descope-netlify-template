@@ -29,7 +29,6 @@ Navigate to the project directory and install the necessary dependencies:
 ```bash
 npm i
 npm install netlify-cli -g
-npm install @descope/nextjs-sdk
 ```
 
 ### Connect To Netlify
@@ -47,7 +46,7 @@ or, connect to Netlify by clicking the button below:
 
 Before you run the app, make sure to configure the following:
 
-- **Environment Variables**: Set up your environment variables in a `.env.local` file or on the Netlify project dashboard under site configuration -> Environment variables. You'll need to include your Descope project settings:
+- **Environment Variables**: Set up your environment variables in a `.env.local` file if running locally, or on the Netlify project dashboard under site configuration -> Environment variables if deploying through Netlify. You'll need to include your Descope project settings:
 
 ```
 ####### Descope ENV Variables
