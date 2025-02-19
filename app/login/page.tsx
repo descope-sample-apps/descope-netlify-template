@@ -3,10 +3,12 @@
 import React from "react";
 import styles from "../../styles/Login.module.css";
 import { Descope } from "@descope/nextjs-sdk";
+import Header from "../../components/Header";
 
 export default function Login() {
   return (
     <div className={styles.container}>
+      <Header />
       <main className={styles.main}>
         <div className={styles.login}>
           <Descope
