@@ -17,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider
-        projectId={process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID || "P2tEBjJR4tViVQ0Blc55EGnFxDNg"}
+        projectId={
+          process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID ||
+          "P2tEBjJR4tViVQ0Blc55EGnFxDNg"
+        }
         baseUrl={process.env.NEXT_PUBLIC_DESCOPE_BASE_URL || ""}
       >
         <body className={fontSans.className}>{children}</body>
