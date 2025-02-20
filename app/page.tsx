@@ -38,8 +38,8 @@ export default function Home() {
     <div className="w-full">
       <Head>
         <title>Descope Netlify Example</title>
-        <meta name="Descope Netlify Example" content="Descope Netlify Example" />
-        <link rel="icon" href="/favicon.png" />
+        <meta name="Descope Netlify Template" content="Descope Netlify Template" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main className={styles.main}>
