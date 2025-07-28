@@ -24,13 +24,23 @@ export default function Login() {
           </h1>
         </motion.div>
 
-        <Descope
-          flowId={process.env.NEXT_PUBLIC_DESCOPE_FLOW_ID || "sign-up-or-in"}
-          theme="dark"
-          redirectAfterSuccess="/dashboard"
-          redirectAfterError="/"
-        />
-
+        <div className="relative max-w-sm mx-auto mt-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="backdrop-blur-xl bg-white/10 rounded-xl shadow-2xl border border-white/20 overflow-hidden"
+          >
+            <Descope
+              flowId={
+                process.env.NEXT_PUBLIC_DESCOPE_FLOW_ID || "sign-up-or-in"
+              }
+              theme="dark"
+              redirectAfterSuccess="/dashboard"
+              redirectAfterError="/"
+            />
+          </motion.div>
+        </div>
         <Flair />
       </div>
     </div>
