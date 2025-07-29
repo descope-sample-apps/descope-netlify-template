@@ -34,7 +34,7 @@ export default function Home() {
         <p className="text-xl md:text-2xl text-gray-300 mb-8">
           Welcome to the Netlify + Descope Next.js Template
         </p>
-        <div className="flex justify-center items-center gap-5">
+        <div className="flex justify-center items-center flex-col sm:flex-row gap-5">
           <Link href="/login" passHref>
             <motion.button
               whileHover={{ scale: 1.05 }}
