@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 import { Descope } from "@descope/nextjs-sdk";
+
 import { Flair, FloatingShapes, GradientText } from "../../components";
-import { motion } from "framer-motion";
 
 export default function Login() {
   return (

@@ -1,9 +1,10 @@
 "use client";
 
-import { useDescope, useUser } from "@descope/nextjs-sdk/client";
+import React, { SyntheticEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import React, { SyntheticEvent, useCallback, useState } from "react";
+
+import { useDescope, useUser } from "@descope/nextjs-sdk/client";
 
 import { Flair, FloatingShapes, GradientText } from "../../components";
 
