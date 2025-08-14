@@ -1,80 +1,72 @@
 "use client";
 
-import { useDescope, useSession, useUser } from "@descope/nextjs-sdk/client";
-import Head from "next/head";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { SyntheticEvent, useCallback, useState } from "react";
-import styles from "../styles/Home.module.css";
-import React from 'react'
-import Header from "../components/Header";
-import "../styles/globals.css";
-const getUserDisplayName = (user: any) =>
-  user?.name || user?.externalIds?.[0] || "";
+
+import { Flair, FloatingShapes, GradientText } from "../components";
 
 export default function Home() {
-  const { isAuthenticated } = useSession();
-  const { user } = useUser();
-  const { logout } = useDescope();
+  const [mounted, setMounted] = useState(false);
 
-  const onLogout = useCallback(() => {
-    logout();
-  }, [logout]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const [apiFormResult, setApiFormResult] = useState<string>("");
-
-  const handleSubmit = async (event: SyntheticEvent) => {
-    event.preventDefault();
-
-    const response = await fetch("/api/form", { method: "GET" });
-
-    const result = await response.json();
-    console.log(result);
-    const resultMessage = `Result: ${result.data}`;
-    setApiFormResult(resultMessage);
-    alert(resultMessage);
-  };
-
+  if (!mounted) return null;
+  
   return (
-    <div className="w-full">
-      <Head>
-        <title>Descope Netlify Example</title>
-        <meta name="Descope Netlify Template" content="Descope Netlify Template" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to the{" "}
-          <a href="https://github.com/descope-sample-apps/descope-netlify-template">
-            Descope Netlify Template
-          </a>
-        </h1>
-        {!isAuthenticated && (
-          <Link href="/login" passHref>
-            <button>Login</button>
-          </Link>
-        )}
-        {isAuthenticated && (
-          <>
-            <div className={styles.description}>
-              Hello {getUserDisplayName(user)}
-            </div>
-            <button onClick={onLogout}>Logout</button>
-            <div className={styles.description}>Submit API Form</div>
-            <form onSubmit={handleSubmit}>
-              <button data-cy="api-form-button" type="submit" >
-                Submit
-              </button>
-            </form>
-            <div>{apiFormResult}</div>
-          </>
-        )}
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-radial from-black via-black to-blue-950/20 opacity-70" />
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>app/page.tsx</code>
+      <FloatingShapes />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative z-10 text-center max-w-3xl mx-auto px-4"
+      >
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <GradientText className="bg-clip-text text-transparent bg-gradient-to-r from-[#5cf34f] via-[#02dfed] to-[#00a4c5]">
+            Authenticate with Descope
+          </GradientText>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-8">
+          Welcome to the Netlify + Descope Next.js Template
         </p>
-      </main>
+        <div className="flex justify-center items-center flex-col sm:flex-row gap-5">
+          <Link href="/login" passHref>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-xl bg-gradient-to-r from-[#00A6B4] via-[#3DEFE9] to-[#5cf34f] px-8 py-3 text-base font-medium text-black shadow-lg border-1 border-[#00A6B4] backdrop-blur-sm w-48 cursor-pointer"
+            >
+              Sign In
+            </motion.button>
+          </Link>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() =>
+              window.open(
+                "https://github.com/descope-sample-apps/descope-netlify-template",
+                "_blank"
+              )
+            }
+            className="rounded-xl bg-black border-1 border-[#5cf34f]/50 px-8 py-3 text-base font-medium text-white shadow-lg backdrop-blur-sm w-48 cursor-pointer"
+          >
+            View on GitHub
+          </motion.button>
+        </div>
+
+        <p className="mt-8 mb-2 text-lg text-gray-200">
+          Get started by editing{" "}
+          <code className="bg-gray-800 rounded px-2 py-1 text-sm font-mono">
+            app/page.tsx
+          </code>
+        </p>
+        <Flair />
+      </motion.div>
     </div>
   );
 }

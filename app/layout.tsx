@@ -1,13 +1,23 @@
-"use client";
-
 import React from "react";
-import { AuthProvider } from "@descope/nextjs-sdk";
-import { Inter as FontSans } from "next/font/google";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-const fontSans = FontSans({
+import { AuthProvider } from "@descope/nextjs-sdk";
+
+import Header from "../components/Header";
+import "../styles/globals.css";
+
+const fontSans = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
 });
+
+export const metadata: Metadata = {
+  title: "Netlify + Descope Next.js Template",
+  description: "Authenticate with Descope",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -15,16 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <AuthProvider
-        projectId={
-          process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID ||
-          "P2tEBjJR4tViVQ0Blc55EGnFxDNg"
-        }
-        baseUrl={process.env.NEXT_PUBLIC_DESCOPE_BASE_URL || ""}
-      >
-        <body className={fontSans.className}>{children}</body>
-      </AuthProvider>
-    </html>
+    <AuthProvider
+      projectId={
+        process.env.NEXT_PUBLIC_DESCOPE_PROJECT_ID ||
+        "P2tEBjJR4tViVQ0Blc55EGnFxDNg"
+      }
+      baseUrl={process.env.NEXT_PUBLIC_DESCOPE_BASE_URL || ""}
+    >
+      <html lang="en">
+        <body className={fontSans.className}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
