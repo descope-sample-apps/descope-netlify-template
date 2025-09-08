@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@descope/nextjs-sdk": "^0.14.3",
-    "@netlify/plugin-nextjs": "^5.13.0",
+    "@netlify/plugin-nextjs": "^5.13.1",
     "@tailwindcss/postcss": "^4.1.11",
     "framer-motion": "^12.23.9",
     "next": "^15.0.0",
