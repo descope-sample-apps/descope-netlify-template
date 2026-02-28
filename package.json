@@ -20,7 +20,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4",
+    "@types/node": "^24.0.0",
     "@types/react": "^19.0.10",
     "typescript": "^5.7.3"
   }
