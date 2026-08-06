@@ -9,7 +9,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
-    "@descope/nextjs-sdk": "^0.14.3",
+    "@descope/nextjs-sdk": "^0.15.0",
     "@netlify/plugin-nextjs": "^5.14.0",
     "@tailwindcss/postcss": "^4.1.11",
     "framer-motion": "^12.23.9",
