@@ -12,7 +12,7 @@
     "@descope/nextjs-sdk": "^0.14.3",
     "@netlify/plugin-nextjs": "^5.14.0",
     "@tailwindcss/postcss": "^4.1.11",
-    "framer-motion": "^12.23.9",
+    "motion": "^12.23.9",
     "next": "^15.0.0",
     "postcss": "^8.5.6",
     "react": "^19.0.0",
